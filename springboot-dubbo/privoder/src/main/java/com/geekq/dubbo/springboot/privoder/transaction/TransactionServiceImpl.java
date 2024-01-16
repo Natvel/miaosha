@@ -14,7 +14,7 @@ public class TransactionServiceImpl implements ServiceAPI {
     @Compensable(confirmMethod = "confirmSendMessage", cancelMethod = "cancelSendMessage", transactionContextEditor = DubboTransactionContextEditor.class)
     public String sendMessage(String message) {
         System.out.println("this is sendMessage try message="+message);
-        if(message.equals("123")){
+        if("123".equals(message)){
             throw new NullPointerException();
         }
 
@@ -24,7 +24,7 @@ public class TransactionServiceImpl implements ServiceAPI {
     @Override
     @Compensable(confirmMethod = "confirmIsTrueSeats", cancelMethod = "cancelIsTrueSeats", transactionContextEditor = DubboTransactionContextEditor.class)
     public boolean isTrueSeats(String seats) {
-        if(seats.equals("1,2,3")){
+        if("1,2,3".equals(seats)){
             throw new IllegalArgumentException();
         }else{
             return true;
@@ -34,7 +34,7 @@ public class TransactionServiceImpl implements ServiceAPI {
     @Override
     @Compensable(confirmMethod = "confirmIsNotSold", cancelMethod = "cancelIsNotSold", transactionContextEditor = DubboTransactionContextEditor.class)
     public boolean isNotSold(String seats) {
-        if(seats.equals("4,5")){
+        if("4,5".equals(seats)){
             throw new IllegalArgumentException();
         }else{
             return true;

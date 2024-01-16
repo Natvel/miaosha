@@ -248,7 +248,7 @@ public class RedisService {
 				}
 				//再处理cursor
 				cursor = ret.getStringCursor();
-			}while(!cursor.equals("0"));
+			}while(!"0".equals(cursor));
 			return keys;
 		} finally {
 			if (jedis != null) {
