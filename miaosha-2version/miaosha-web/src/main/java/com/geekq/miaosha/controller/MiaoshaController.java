@@ -67,7 +67,7 @@ public class MiaoshaController implements InitializingBean {
      * get　post get 幂等　从服务端获取数据　不会产生影响　　post 对服务端产生变化
      */
     @RequireLogin(seconds = 5, maxCount = 5, needLogin = true)
-    @RequestMapping(value="/{path}/do_miaosha", method= RequestMethod.POST)
+    @PostMapping(value="/{path}/do_miaosha")
     @ResponseBody
     public ResultGeekQ<Integer> miaosha(Model model, MiaoshaUser user, @PathVariable("path") String path,
                                         @RequestParam("goodsId") long goodsId) {
@@ -138,7 +138,7 @@ public class MiaoshaController implements InitializingBean {
      * 0： 排队中
      */
     @RequireLogin(seconds = 5, maxCount = 5, needLogin = true)
-    @RequestMapping(value = "/result", method = RequestMethod.GET)
+    @GetMapping(value = "/result")
     @ResponseBody
     public ResultGeekQ<Long> miaoshaResult(Model model, MiaoshaUser user,
                                            @RequestParam("goodsId") long goodsId) {
@@ -154,7 +154,7 @@ public class MiaoshaController implements InitializingBean {
     }
 
     @RequireLogin(seconds = 5, maxCount = 5, needLogin = true)
-    @RequestMapping(value = "/path", method = RequestMethod.GET)
+    @GetMapping(value = "/path")
     @ResponseBody
     public ResultGeekQ<String> getMiaoshaPath(HttpServletRequest request, MiaoshaUser user,
                                               @RequestParam("goodsId") long goodsId,
@@ -175,7 +175,7 @@ public class MiaoshaController implements InitializingBean {
         return result;
     }
 
-    @RequestMapping(value = "/verifyCodeRegister", method = RequestMethod.GET)
+    @GetMapping(value = "/verifyCodeRegister")
     @ResponseBody
     public ResultGeekQ<String> getMiaoshaVerifyCod(HttpServletResponse response
                                                   ) {
@@ -195,7 +195,7 @@ public class MiaoshaController implements InitializingBean {
     }
 
 
-    @RequestMapping(value = "/verifyCode", method = RequestMethod.GET)
+    @GetMapping(value = "/verifyCode")
     @ResponseBody
     public ResultGeekQ<String> getMiaoshaVerifyCod(HttpServletResponse response, MiaoshaUser user,
                                                    @RequestParam("goodsId") long goodsId) {
