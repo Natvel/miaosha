@@ -8,6 +8,7 @@ import com.geekq.miaosha.redis.RedisService;
 import com.geekq.miaosha.utils.MD5Utils;
 import com.geekq.miaosha.utils.UUIDUtil;
 import com.geekq.miaosha.vo.GoodsVo;
+import java.security.SecureRandom;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -98,7 +99,7 @@ public class MiaoshaService {
 		g.setColor(Color.black);
 		g.drawRect(0, 0, width - 1, height - 1);
 		// create a random instance to generate the codes
-		Random rdm = new Random();
+		Random rdm = new SecureRandom();
 		// make some confusion
 		for (int i = 0; i < 50; i++) {
 			int x = rdm.nextInt(width);
@@ -146,7 +147,7 @@ public class MiaoshaService {
 		g.setColor(Color.black);
 		g.drawRect(0, 0, width - 1, height - 1);
 		// create a random instance to generate the codes
-		Random rdm = new Random();
+		Random rdm = new SecureRandom();
 		// make some confusion
 		for (int i = 0; i < 50; i++) {
 			int x = rdm.nextInt(width);
